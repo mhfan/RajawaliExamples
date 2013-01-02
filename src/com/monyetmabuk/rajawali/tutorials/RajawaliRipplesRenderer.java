@@ -83,8 +83,7 @@ public class RajawaliRipplesRenderer extends RajawaliRenderer {
 		plane.setMaterial(planeMat);
 		addChild(plane);
 		
-		mFilter = new TouchRippleFilter();
-		mFilter.setRippleSize(62);
+		mFilter = new TouchRippleFilter(5);
 		mPostProcessingRenderer.setQuadSegments(QUAD_SEGMENTS);
 		mPostProcessingRenderer.setQuality(PostProcessingQuality.LOW);
 		addPostProcessingFilter(mFilter);
@@ -110,7 +109,7 @@ public class RajawaliRipplesRenderer extends RajawaliRenderer {
 		mFilter.setScreenSize(width, height);
 	}
 	
-	public void setTouch(float x, float y) {
-		mFilter.addTouch(x, y, frameCount *.05f);
+	public void addRipple(float x, float y) {
+		mFilter.addRipple(x, y, frameCount *.05f);
 	}
 }
